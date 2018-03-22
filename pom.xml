@@ -147,6 +147,7 @@
         <module>extensions-contrib/kafka-emitter</module>
         <module>extensions-contrib/redis-cache</module>
         <module>extensions-contrib/opentsdb-emitter</module>
+        <module>extensions-contrib/ep-extensions</module>
         <!-- distribution packaging -->
         <module>distribution</module>
     </modules>
