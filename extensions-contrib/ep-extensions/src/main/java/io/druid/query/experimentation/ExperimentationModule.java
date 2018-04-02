@@ -27,19 +27,22 @@ import io.druid.initialization.DruidModule;
 import java.util.Collections;
 import java.util.List;
 
-public class ExperimentationModule implements DruidModule {
-    @Override
-    public List<? extends Module> getJacksonModules() {
-        return Collections.singletonList(
-                new SimpleModule("ExperimentationModule")
-                        .registerSubtypes(
-                                new NamedType(ProbabiltyOfBeatingPostAggregator.class, "pob")
-                        )
-        );
-    }
+public class ExperimentationModule implements DruidModule
+{
+  @Override
+  public List<? extends Module> getJacksonModules()
+  {
+    return Collections.singletonList(
+        new SimpleModule("ExperimentationModule")
+            .registerSubtypes(
+                new NamedType(ProbabiltyOfBeatingPostAggregator.class, "pob")
+            )
+    );
+  }
 
-    @Override
-    public void configure(Binder binder) {
+  @Override
+  public void configure(Binder binder)
+  {
 
-    }
+  }
 }
