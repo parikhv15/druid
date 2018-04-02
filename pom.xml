@@ -90,6 +90,7 @@
         <repoOrgId>org-apache-id</repoOrgId>
         <repoOrgName>org-apache-name</repoOrgName>
         <repoOrgUrl>https://repository.apache.org/content/repositories/public/</repoOrgUrl>
+        <scala.version>2.12.2</scala.version>
     </properties>
 
     <modules>
@@ -893,6 +894,18 @@
                 <version>${guava.version}</version>
                 <scope>test</scope>
             </dependency>
+            <!--Scala -->
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>${scala.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.scalatest</groupId>
+                <artifactId>scalatest_2.12</artifactId>
+                <version>3.0.5</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -1063,6 +1076,10 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
@@ -1198,6 +1215,30 @@
                         <source>${maven.compiler.target}</source>
                         <target>${maven.compiler.target}</target>
                     </configuration>
+                </plugin>
+                <!-- Use scala-maven-plugin for Scala support -->
+                <plugin>
+                    <groupId>net.alchim31.maven</groupId>
+                    <artifactId>scala-maven-plugin</artifactId>
+                    <version>3.2.2</version>
+                    <inherited>true</inherited>
+                    <executions>
+                        <execution>
+                            <id>scala-compile-first</id>
+                            <phase>process-resources</phase>
+                            <goals>
+                                <goal>add-source</goal>
+                                <goal>compile</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>scala-test-compile</id>
+                            <phase>process-test-resources</phase>
+                            <goals>
+                                <goal>testCompile</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
