@@ -91,6 +91,13 @@
       <artifactId>scalatest_2.12</artifactId>
       <scope>test</scope>
     </dependency>
+
+    <!--Experimentation plugin-->
+    <dependency>
+      <groupId>com.experimentation</groupId>
+      <artifactId>bayesian-ab</artifactId>
+      <version>0.1</version>
+    </dependency>
   </dependencies>
 
   <build>
